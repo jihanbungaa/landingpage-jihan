@@ -1,0 +1,168 @@
+<style>
+.faq-section {
+    margin-top: 44px;
+    background: linear-gradient(180deg,#f6fbff 0,#ecf8ff 60%);
+    padding: 28px;
+    border-radius: 18px;
+    box-shadow: 0 18px 48px rgba(2,30,80,0.07);
+    border: 1px solid rgba(8,35,85,0.04);
+}
+
+.faq-head {
+    display:flex;
+    gap:14px;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:18px;
+}
+.faq-title {
+    display:flex;
+    gap:12px;
+    align-items:center;
+}
+.faq-title .emoji { font-size:28px; background:linear-gradient(90deg,#fff 0,#f2fbff 100%); padding:8px; border-radius:10px; box-shadow:0 8px 24px rgba(2,30,80,0.06); }
+.faq-title h2 { margin:0; font-size:20px; color:#0b3b66; font-weight:900; }
+
+/* item */
+.faq-item {
+    border-radius: 12px;
+    background: white;
+    margin-bottom: 10px;
+    border: 1px solid rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+/* checkbox disembunyiin */
+.faq-item input {
+    display:none;
+}
+
+/* pertanyaan */
+.faq-q {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px;
+    cursor:pointer;
+    user-select:none;
+}
+
+.faq-q .num {
+    width:32px;
+    height:32px;
+    background:#eaf5ff;
+    border-radius:8px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:700;
+    color:#0b3b66;
+}
+
+.faq-q h4 {
+    margin:0;
+    flex:1;
+    font-size:15px;
+    color:#0b2b44;
+    font-weight:800;
+}
+
+/* icon toggle */
+.toggle-icon {
+    font-size:20px;
+    transition:transform .25s ease;
+}
+
+/* jawaban */
+.faq-a {
+    max-height:0;
+    padding:0 14px;
+    overflow:hidden;
+    font-size:14px;
+    color:#333;
+    transition:max-height .3s ease, padding .3s ease;
+}
+
+/* ketika checkbox dicentang */
+.faq-item input:checked ~ .faq-a {
+    max-height:300px;
+    padding:12px 14px 18px;
+}
+
+/* icon berubah */
+.faq-item input:checked + label .toggle-icon {
+    transform:rotate(45deg);
+}
+</style>
+
+<section class="faq-section">
+    <div class="faq-head">
+            <div class="faq-title">
+                <div class="emoji">❓</div>
+                <div>
+                    <h2>FAQ Bisnis Laundry</h2>
+                    <div style="font-size:13px; color:#6b7280; margin-top:6px;">Pertanyaan umum yang sering ditanyakan pemula — praktis & langsung ke inti.</div>
+                </div>
+            </div>
+        </div>
+    <div class="faq-item">
+        <input type="checkbox" id="faq1">
+        <label class="faq-q" for="faq1">
+            <div class="num">🤔</div>
+            <h4>Berapa modal minimal untuk memulai usaha laundry?</h4>
+            <div class="toggle-icon">+</div>
+        </label>
+        <div class="faq-a">
+            Modal hemat mulai dari 5 juta sudah memungkinkan buka laundry rumahan. Skema lengkap ada di e-book, termasuk daftar belanja dan prioritas.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <input type="checkbox" id="faq2">
+        <label class="faq-q" for="faq2">
+            <div class="num">🤔</div>
+            <h4>Berapa lama waktu balik modal rata-rata?</h4>
+            <div class="toggle-icon">+</div>
+        </label>
+        <div class="faq-a">
+            Biasanya 6–18 bulan, tergantung volume cucian dan strategi marketing.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <input type="checkbox" id="faq3">
+        <label class="faq-q" for="faq3">
+            <div class="num">🤔</div>
+            <h4>Apakah cocok untuk pemula?</h4>
+            <div class="toggle-icon">+</div>
+        </label>
+        <div class="faq-a">
+            Cocok. Justru model laundry rumahan lebih ramah pemula karena biaya awal kecil dan operasionalnya simpel.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <input type="checkbox" id="faq4">
+        <label class="faq-q" for="faq4">
+            <div class="num">🤔</div>
+            <h4>Apa perbedaan e-book ini dibanding panduan gratis di internet?</h4>
+            <div class="toggle-icon">+</div>
+        </label>
+        <div class="faq-a">
+           E-book menyusun materi secara sistematis (dari modal, harga, operasi, hingga pemasaran) + bonus template berharga yang langsung dipakai. Tidak perlu menyusun potongan informasi sendiri.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <input type="checkbox" id="faq5">
+        <label class="faq-q" for="faq5">
+            <div class="num">🤔</div>
+            <h4>Apakah ada jaminan 100% bisnis saya akan berhasil?</h4>
+            <div class="toggle-icon">+</div>
+        </label>
+        <div class="faq-a">
+           Tidak ada jaminan mutlak — tapi kami berikan metode, template & langkah teruji yang mengurangi risiko dan mempercepat hasil bila Anda ikuti secara konsisten.
+        </div>
+    </div>
+
+</section>

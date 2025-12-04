@@ -1,0 +1,1292 @@
+<style>
+    :root{
+    --accent-blue: #0b82ff;
+    --accent-teal: #00a2a7;
+    --accent-green: #19c37f;
+    --accent-pink: #ff7bac;
+}
+
+.img-box {
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 24px auto;            /* kasih jarak ke atas-bawah + auto berarti center */
+    padding: 16px;                /* biar gambar gak nempel border */
+    width: fit-content;           /* container ngepas sesuai isi */
+    max-width: 90%;               /* biar gak terlalu melebar di layar kecil */
+    
+    background: #e3f1ff;
+    border: 3px dashed #86b7ff;
+    border-radius: 18px;
+}
+
+.img-box img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+.error-card {
+    border: 2px solid rgba(11,130,255,0.14); 
+    box-shadow: 0 24px 52px rgba(11,130,255,0.06);
+}
+
+
+.testimonial-card {
+    border: 1px solid rgba(11,59,102,0.06);
+    border-left: 6px solid var(--accent-blue);
+}
+
+/* FAQ items get teal left accent */
+.faq-item {
+    border: 1px solid rgba(2,30,80,0.04);
+    border-left: 6px solid var(--accent-teal);
+}
+
+.offer-section { border: 1px solid rgba(233,30,99,0.06); border-left: 6px solid var(--accent-pink); }
+.price-card { border-left: 6px solid var(--accent-green); }
+
+
+.error-card:hover, .testimonial-card:hover, .faq-item:hover, .price-card:hover {
+    box-shadow: 0 36px 80px rgba(3,20,60,0.08);
+    transform: translateY(-6px) scale(1.002);
+}
+
+    body {
+        margin: 0;
+        font-family: "Poppins", Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        padding: 40px 12px;
+    }
+
+    .container {
+        max-width: 520px;
+        background: rgb(254, 254, 255);
+        box-shadow: 0 18px 36px rgba(10,130,255,0.12);
+        border-radius: 22px;
+        padding: 40px 28px;
+        padding-bottom: 120px;            /* <- tambahan penting */
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .tagline {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        color: #4b89ff;
+        letter-spacing: 1px;
+        margin-bottom: 16px;
+    }
+
+    /* section wrapper (manfaat utama) */
+    .section {
+    background: #eaf6ff;
+    padding: 40px 22px 56px;          /* lebih ruang atas/bawah */
+    border-radius: 18px;
+    margin-top: 20px;
+    text-align: center;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* judul */
+.section h2 { margin-bottom: 8px; }
+.subtext { margin-bottom: 22px; }
+
+    h1 {
+        text-align: center;
+        font-size: 36px;
+        font-weight: 800;
+        color: #003c82;
+        line-height: 1.25;
+        margin-bottom: 16px;
+    }
+
+    h1 span {
+        color: #00a2a7;
+    }
+
+    p {
+        font-size: 15px;
+        color: #444;
+        line-height: 1.6;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .ebook-box {
+        margin-top: 28px;
+        width: 100%;
+        height: 260px;
+        background: #d9eaff;
+        border-radius: 18px;
+        border: 2px dashed #7cb4ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #003c82;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .section-title {
+        margin-top: 45px;
+        text-align: center;
+        color: #003c82;
+        font-size: 26px;
+        font-weight: 800;
+        line-height: 1.4;
+    }
+
+    .section-title span {
+        color: #00a781;
+    }
+
+    .feature-item {
+        background: #ffffff;
+        padding: 20px;
+        margin: 15px 0;
+        border-radius: 20px;
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        cursor: pointer;
+    }
+
+    .feature-item:hover {
+        transform: scale(1.04) translateY(-4px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+    }
+
+    /* Feature slider */
+    .feature-slider {
+        margin-top: 25px;
+        display: flex;
+        overflow-x: auto;
+        gap: 18px;
+        padding-bottom: 12px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: thin;
+    }
+
+    .feature-card {
+        min-width: 260px;
+        background: #ffffff;
+        padding: 24px;
+        border-radius: 22px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+        scroll-snap-align: center;
+        transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .feature-card:hover {
+        transform: scale(1.06) translateY(-6px);
+        box-shadow: 0 16px 28px rgba(0,0,0,0.18);
+    }
+
+    .feature-icon {
+        font-size: 40px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .feature-card h3 {
+        font-size: 18px;
+        text-align: center;
+        color: #003c82;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .feature-card p {
+        text-align: center;
+        font-size: 14px;
+        color: #555;
+    }
+
+    /* Testimonial Slider */
+    .testimonial-wrapper {
+        overflow: hidden;
+        position: relative; /* <-- needed for nav buttons */
+        margin-top: 40px;
+    }
+
+    .testimonial-track {
+        display: flex;
+        transition: transform 0.5s ease;
+        /* width no longer fixed — track adapts to children */
+    }
+
+    .testimonial-card {
+        min-width: 100%;        /* ensure each slide is full width */
+        box-sizing: border-box;
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        margin: 0;              /* remove side margins so translateX(-n * 100%) works reliably */
+    }
+
+    /* nav buttons */
+    .testimonial-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items:center;
+        justify-content:center;
+        border-radius: 10px;
+        border: 0;
+        cursor: pointer;
+        background: rgba(11,59,102,0.06);
+        color: #0b3b66;
+        z-index: 30;
+        transition: transform .12s ease, background .12s;
+    }
+    .testimonial-nav:hover { transform: translateY(-50%) scale(1.06); background: rgba(11,59,102,0.12); }
+    #prevTest { left: 12px; }
+    #nextTest { right: 12px; }
+
+    .rating {
+        color: #FFC700;
+        font-size: 20px;
+        margin: 10px 0 15px;
+    }
+
+    .dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #cfcfcf;
+        transition: 0.3s;
+    }
+
+    .dot.active {
+        background: #15C37D;
+        width: 26px;
+        border-radius: 20px;
+    }
+
+    /* NEW: Interactive Offer Card */
+    .offer-section {
+        margin-top: 40px;
+        background: #f9f9f9;
+        padding: 24px;
+        border-radius: 18px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .offer-card {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .offer-badge {
+        background: #ffeb3b;
+        padding: 8px;
+        border-radius: 12px;
+        text-align: center;
+        font-weight: 700;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .offer-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .offer-left {
+        flex: 1;
+        min-width: 220px;
+    }
+
+    .normal-price {
+        text-decoration: line-through;
+        color: #999;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .price {
+        font-size: 28px;
+        font-weight: 800;
+        color: #e91e63;
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        gap: 4px;
+    }
+
+    .currency {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1;
+    }
+
+    .price-sub {
+        font-size: 14px;
+        color: #666;
+        text-align: center;
+        margin-top: 4px;
+    }
+
+    .offer-bullets {
+        list-style: none;
+        padding: 0;
+        margin: 12px 0;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .offer-bullets li {
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .offer-meta {
+        margin-top: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .progress-wrap {
+        background: #e0e0e0;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 8px;
+    }
+
+    .progress {
+        height: 100%;
+        background: #4caf50;
+        width: 0;
+        transition: width 0.4s ease;
+    }
+
+    .stock-info {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .guarantee {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .cta-btn {
+        background: #007bff;
+        margin-top: 50px;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .cta-btn:hover {
+        background: #0056b3;
+    }
+
+    /* Modal styles */
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.7);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+
+    .modal-card {
+        background: white;
+        padding: 24px;
+        border-radius: 12px;
+        max-width: 400px;
+        width: 100%;
+        position: relative;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .modal-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: none;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .payment-options {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 16px;
+    }
+
+    .payment-options label {
+        background: #f1f1f1;
+        padding: 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: background 0.3s ease;
+    }
+
+    .payment-options input {
+        display: none;
+    }
+
+    .payment-options label:hover {
+        background: #e1e1e1;
+    }
+
+    .purchase-confirm {
+        background: #28a745;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        width: 100%;
+    }
+
+    .purchase-confirm:hover {
+        background: #218838;
+    }
+
+    /* Confetti styles */
+    .confetti-root {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        display: none;
+    }
+
+    .confetti {
+        position: absolute;
+        bottom: 100%;
+        width: 10px;
+        height: 10px;
+        opacity: 0.8;
+        animation: fall 1.2s forwards, drift 1.2s forwards;
+    }
+
+    @keyframes fall {
+        to {
+            transform: translateY(100vh) rotate(720deg);
+        }
+    }
+
+    @keyframes drift {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(var(--drift) * 1px));
+        }
+    }
+
+
+    /* Floating Button */
+.floating-btn {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%) translateY(0);
+    justify-content: center;
+    background: #a8cafa;
+    color: white;
+    padding: 16px 22px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 9999;
+    animation: floatCenter 2.5s ease-in-out infinite;
+    transition: transform 0.2s ease;
+}
+
+.floating-btn:hover {
+    transform: translateX(-50%) translateY(-4px) scale(1.08);
+}
+
+/* Efek melayang - center-safe */
+@keyframes floatCenter {
+    0% { transform: translateX(-50%) translateY(0px); }
+    50% { transform: translateX(-50%) translateY(-8px); }
+    100% { transform: translateX(-50%) translateY(0px); }
+}
+
+/* --- Kesalahan fatal: card style like screenshot --- */
+.mistake-list {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.error-card {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    padding: 34px 18px 22px;
+    box-shadow: 0 18px 40px rgba(4,28,70,0.06);
+    overflow: visible;
+    text-align: center;
+    transition: transform .18s ease, box-shadow .18s ease;
+    border: 1px solid rgba(7,36,80,0.04);
+}
+.error-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px rgba(4,28,70,0.09);
+}
+
+/* circular icon floating above card */
+.error-card .icon-wrap {
+    width:64px;
+    height:64px;
+    border-radius: 50%;
+    background: linear-gradient(180deg,#e8f8ff,#ffffff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    color:#0b3b66;
+    position:absolute;
+    left:50%;
+    top:-32px;
+    transform:translateX(-50%);
+    box-shadow: 0 12px 30px rgba(11,59,102,0.08);
+    border: 4px solid rgba(255,255,255,0.7);
+}
+
+/* heading + text */
+.error-card h3 {
+    margin: 8px 0 6px;
+    font-size:18px;
+    font-weight:800;
+    color: #0b3b66;
+}
+.error-card p {
+    margin: 0;
+    font-size:14px;
+    color:#57636b;
+    line-height:1.5;
+    max-width: 86%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* Testimonial header + avatar */
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+}
+
+.avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #0b82ff;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    box-shadow: 0 10px 30px rgba(3,20,60,0.08);
+    flex-shrink: 0;
+}
+
+.testimonial-header .meta { display: flex; flex-direction: column; gap: 2px; }
+.testimonial-header .meta b { font-size: 16px; color: #0b3b66; }
+.testimonial-header .meta .loc { font-size: 13px; color: #6b7280; font-weight: 600; }
+
+/* align rating + paragraph visually under the name, not under avatar */
+.testimonial-card .rating {
+    margin: 6px 0 12px 70px; /* 56px avatar + gap */
+    font-size: 18px;
+}
+.testimonial-card p {
+    margin-left: 70px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- Pricing option card (opsi hemat) --- */
+.pricing-options {
+    margin-top: 20px;
+    display: grid;
+    gap: 18px;
+    box-shadow: 0 10px 30px rgba(0, 123, 167, 0.15);
+}
+
+/* card */
+.price-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 18px 40px rgba(107, 146, 235, 0.06);
+    border: 1px solid rgba(151, 181, 236, 0.04);
+    box-shadow: 0 10px 30px rgba(0, 123, 167, 0.15);
+    text-align: left;
+}
+
+/* title */
+.price-card h3 {
+    text-align: center;
+    margin: 6px 0 12px;
+    font-size: 20px;
+    color: #0b3b66;
+    font-weight: 800;
+}
+
+/* price box */
+.price-box {
+    margin: 8px auto 14px;
+    background: #f3f7fb;
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+    max-width: 420px;
+     box-shadow: 0 10px 30px rgba(0, 123, 167, 0.15);
+}
+
+.price-box .old { display:block; color:#9aa4b3; text-decoration: line-through; font-weight:700; margin-bottom:6px; }
+.price-box .big {
+    font-size: 34px;
+    font-weight: 900;
+    color: #19c37f;
+    margin: 0;
+}
+.price-box .small { color:#7b8c96; font-weight:600; margin-top:6px; }
+
+/* list items */
+.price-features { margin: 12px 0 16px; padding: 0; list-style: none; font-size: 14px; color:#334155; }
+.price-features li { display:flex; gap:10px; align-items:flex-start; margin-bottom:10px; }
+.price-features .ok { color:#19c37f; font-weight:800; margin-top:2px; }
+.price-features .no { color:#ff6b6b; text-decoration: line-through; opacity:0.8; margin-top:2px; }
+
+/* CTA box button */
+.price-cta {
+    display:flex; justify-content:center;
+}
+.price-cta .btn-buy {
+    background: linear-gradient(90deg,#f2f8ff,#e6f0ff);
+    border-radius: 12px;
+    padding: 18px 20px;
+    box-shadow: 0 18px 36px rgba(10,130,255,0.12);
+    color: #0b63ff;
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 420px;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 16px;
+    transition: transform .12s ease, box-shadow .12s ease;
+}
+.price-cta .btn-buy:hover { transform: translateY(-4px); box-shadow: 0 26px 46px rgba(10,130,255,0.16); }
+
+/* responsive */
+@media (max-width:520px) {
+    .price-box { padding: 14px; }
+    .price-box .big { font-size: 28px; }
+    .price-cta .btn-buy { padding: 14px; }
+}
+
+/* POPUP NOTIFIKASI PEMBELI */
+.purchase-popup {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 12px 16px;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: all .4s ease;
+}
+
+.purchase-popup.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.popup-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #0b82ff;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    box-shadow: 0 10px 30px rgba(3,20,60,0.08);
+    flex-shrink: 0;
+}
+
+.popup-text {
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.popup-time {
+    font-size: 12px;
+    color: #2b88ff;
+}
+
+
+.section {
+    background: #eaf6ff;
+    padding: 35px 30px;
+    border-radius: 18px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 28px;
+    color: #0e8bd8;
+    margin-bottom: 6px;
+}
+
+.subtext {
+    color: #5a738a;
+    font-size: 16px;
+    margin-bottom: 32px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    align-items: stretch;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 16px 34px rgba(11,59,102,0.06);
+    min-height: 160px;                /* konsisten tinggi */
+    text-align: center;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 60px rgba(11,59,102,0.09);
+}
+
+/* icon di dalam card — tetap lingkaran kecil di atas teks */
+.icon-wrap {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: radial-gradient(circle at top, #def3ff, #b9e4ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 8px 20px rgba(3,20,60,0.06);
+    flex-shrink: 0;
+}
+
+/* judul card sedikit lebih tebal dan responsif */
+.card h3 {
+    font-size: 16px;
+    color: #0b3558;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.15;
+}
+
+/* deskripsi card */
+.card p {
+    margin: 0;
+    color: #526b7f;
+    font-size: 13.5px;
+    line-height: 1.5;
+    max-width: 220px;
+}
+
+/* Pastikan tombol mengambang tidak overlap konten pada layar kecil */
+@media (max-width:520px) {
+    .features { grid-template-columns: 1fr; }
+    .card { min-height: 140px; padding: 16px; }
+    .container { padding-bottom: 160px; } /* extra space on small screens */
+    .section { padding-bottom: 70px; }
+}
+</style>
+
+
+<div class="container">
+
+    <div class="tagline">LAUNDRY SUKSES</div>
+
+    <p style="text-align:center; font-size:15px; margin-top:-4px;">
+        💰 Modal Rendah, Profit Maksimal!
+    </p>
+
+    <h1>
+        Bangun Bisnis Laundry Rumahan yang Cepat Balik Modal 
+        <span>Pemula Wajib Punya!</span>
+    </h1>
+
+    <p>
+        Jangan buang waktu dan modal Anda!  
+        E-book panduan praktis 2024 ini adalah <b>jalan pintas</b> untuk memulai bisnis laundry kiloan dari nol, khusus pemula yang ingin langsung profit.
+    </p>
+
+    <div class="img-box"> 
+       <img src="https://cms-assets.tutsplus.com/cdn-cgi/image/width=360/uploads/users/1631/posts/37388/image-upload/EbookTemplate001.jpg" class="ebook">
+
+    </div>
+
+    <h2 style="color: red; text-align: center; margin-top:40px;">KESALAHAN FATAL PEMULA</h2>
+
+    <!-- updated cards -->
+    <div class="mistake-list" aria-label="Kesalahan Fatal Pemula">
+        <article class="error-card" aria-hidden="false">
+            <div class="icon-wrap">🤯</div>
+            <h3>Modal Bengkak & Tanpa Perencanaan</h3>
+        </article>
+
+        <article class="error-card">
+            <div class="icon-wrap">✖️</div>
+            <h3>Gagal Menarik Pelanggan</h3>
+           
+        </article>
+
+        <article class="error-card">
+            <div class="icon-wrap">💲</div>
+            <h3>Penentuan Harga Salah</h3>
+           
+        </article>
+
+        <article class="error-card">
+            <div class="icon-wrap">😥</div>
+            <h3>Proses Kerja Lambat & Berantakan</h3>
+        </article>
+    </div>
+
+
+    <h2 class="section-title">
+        Di Dalam E-book Ini, Anda Akan <span>Pelajari Semua Rahasia</span>
+    </h2>
+
+    <p style="margin-bottom:12px;">Langkah demi langkah untuk pemula.</p>
+
+    <!-- Feature Slider -->
+    <div class="feature-slider">
+        <div class="feature-card"><div class="feature-icon">📊</div><h3>Rencana Anggaran</h3><p>Detail modal awal & cara hitung BEP.</p></div>
+        <div class="feature-card"><div class="feature-icon">📍</div><h3>Strategi Lokasi</h3><p>Pelanggan datang tanpa iklan mahal.</p></div>
+        <div class="feature-card"><div class="feature-icon">📈</div><h3>Marketing Laundry</h3><p>Trik promosi hemat & efektif.</p></div>
+        <div class="feature-card"><div class="feature-icon">🧺</div><h3>Standar Operasional</h3><p>Cepat, rapi, minim komplain.</p></div>
+    </div>
+    
+   <div class="section">
+  <h2>MANFAAT UTAMA EBOOK</h2>
+  <p class="subtext">Anda akan mendapat banyak manfaat dari ebook ini</p>
+
+  <div class="features">
+
+    <div class="card">
+      <div class="icon-wrap">
+        🤑
+      </div>
+      <div>
+        <h3>Balik Modal Lebih Cepat</h3><br>
+        <p>Teknik menjalankan bisnis laundry agar modal kembali dalam hitungan mingg.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon-wrap">
+        📊
+      </div>
+      <div>
+        <h3>Strategi Mendapat Pelanggan</h3><br>
+        <p>Cara realistis menarik orderan pertama tanpa biaya marketing besar..</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon-wrap">
+        💸
+      </div>
+      <div>
+        <h3>Penentuan Harga yang Tepat</h3><br>
+        <p>Panduan menentukan tarif yang kompetitif tapi tetap menguntungkan.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon-wrap">
+        ✅
+      </div>
+      <div>
+        <h3>Checklist Peralatan Wajib</h3><br>
+        <p>Daftar perlengkapan penting agar tidak salah beli dan modal tetap efisien.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+    <!-- TESTIMONI SLIDER 3 ITEM -->
+    <div class="testimonial-wrapper">
+        <div class="testimonial-track" id="testimonialTrack">
+
+            <!-- Slide 1 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="avatar">A</div>
+                    <div class="meta"><b>Andi</b><span class="loc">Depok</span></div>
+                </div>
+                <div class="rating">★★★★★</div><br>
+                E-book ini jelas banget! Saya akhirnya ngerti cara hitung harga dan mulai dapat pelanggan tetap.
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="avatar">R</div>
+                    <div class="meta"><b>Rina</b><span class="loc">Bogor</span></div>
+                </div>
+                <div class="rating">★★★★★</div><br>
+                Dari nol sampai buka laundry rumahan. Pelan tapi pasti, omzet naik tiap minggu!
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="avatar">F</div>
+                    <div class="meta"><b>Fahri</b><span class="loc">Jakarta</span></div>
+                </div>
+                <div class="rating">★★★★★</div><br>
+                Panduan paling lengkap. Praktis & mudah dipahami. Pantas banyak direkomendasikan.
+            </div>
+
+        </div>
+
+        <!-- new nav buttons -->
+        <button id="prevTest" class="testimonial-nav" aria-label="Sebelumnya">‹</button>
+        <button id="nextTest" class="testimonial-nav" aria-label="Berikutnya">›</button>
+
+        <div class="dots">
+            <div class="dot active" id="dot1"></div>
+            <div class="dot" id="dot2"></div>
+            <div class="dot" id="dot3"></div>
+        </div>
+    </div>
+
+
+    <!-- NEW: Interactive Offer Card -->
+    <div class="offer-section" id="offer" aria-label="Penawaran Paket Lengkap">
+        <div class="offer-card">
+            <div class="offer-badge">PALING LARIS & DIREKOMENDASIKAN</div>
+            <div class="offer-main">
+                <div class="offer-left">
+                    <div class="normal-price">Harga Normal Rp324.000</div>
+                    <div class="price">
+                        <span class="currency">Rp</span>
+                        <span id="animatedPrice">324000</span>
+                    </div>
+                    <div class="price-sub">Hemat Ratusan Ribu · Akses Seumur Hidup</div>
+
+                    <ul class="offer-bullets">
+                        <li>📘 E-book Utama: "Cepat Balik Modal"</li>
+                        <li>✅ Bonus 1: Template SOP Operasional</li>
+                        <li>✅ Bonus 2: Spreadsheet Perhitungan</li>
+                        <li>✅ Bonus 3: Checklist Peralatan & Merek</li>
+                    </ul>
+
+                    <div class="offer-meta">
+                        <div class="progress-wrap" aria-hidden="true">
+                            <div class="progress" id="stockProgress"></div>
+                        </div>
+                        <div class="stock-info">
+                            <div id="stockText">Tersisa <strong id="stockCount">12</strong> paket diskon</div>
+                            <div class="guarantee">🔒 Garansi Uang Kembali 7 Hari</div>
+                        </div>
+                    </div>
+
+           <button id="buyBtn" class="cta-btn">AMBIL PAKET LENGKAP <span class="cta-price">(Rp149.000)</span></button>
+                   
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- pricing options: tambahan card (opsi hemat) -->
+        <div class="pricing-options" aria-label="Opsi Pembelian">
+            <div class="price-card" id="basicOffer">
+                <h3>Opsi Hemat: E-book Panduan Dasar</h3>
+
+                <div class="price-box" role="region" aria-label="Harga Opsi Hemat">
+                    <span class="old">Rp125.000</span>
+                    <p class="big">Rp100.000</p>
+                    <div class="small">Hanya E-book (PDF / MOBI)</div>
+                </div>
+
+                <ul class="price-features">
+                    <li><span class="ok">✔</span> <div> E-book Lengkap "Cepat Balik Modal"</div></li>
+                    <li><span class="no">✖</span> <div> Template SOP & Spreadsheet BEP <small>(tidak termasuk)</small></div></li>
+                    <li><span class="no">✖</span> <div> Checklist Peralatan Wajib & Rekomendasi <small>(tidak termasuk)</small></div></li>
+                </ul>
+
+                <div class="price-cta">
+                    <button class="btn-buy" onclick="location.hash='#offer'; return false;">
+                        DAPATKAN E-BOOK SAJA <span style="display:block; font-size:13px; font-weight:700; color:#0b63ff; margin-top:6px;">(Rp100.000)</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="purchaseModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+            <div class="modal-card">
+                <button id="closeModal" class="modal-close" aria-label="Tutup">✕</button>
+                <h3>Ambil Paket Lengkap</h3>
+                <p>Pilih metode pembayaran & isi data singkat untuk melanjutkan.</p>
+                <form id="purchaseForm">
+                    <input type="text" name="name" placeholder="Nama lengkap" required />
+                    <input type="tel" name="phone" placeholder="Nomor WA" required />
+                    <button type="submit" class="purchase-confirm">Bayar Rp149.000</button>
+                </form>
+            </div>
+            <div id="confettiRoot" class="confetti-root" aria-hidden="true"></div>
+        </div>
+        
+
+        
+    </div>
+
+   <a href="#offer" class="floating-btn">
+    📘 Dapatkan E-Book
+</a>
+
+
+ 
+<!-- POPUP PEMBELIAN -->
+<div id="purchasePopup" class="purchase-popup">
+    <img src="https://i.pinimg.com/originals/33/ba/c0/33bac083ba44f180c1435fc41975bf36.jpg" class="popup-avatar" alt="">
+    <div class="popup-text">
+        <strong id="popupName">Seseorang</strong> baru saja membeli <br>
+        <span class="popup-time">1 menit lalu</span>
+    </div>
+</div>
+
+   
+
+
+<script>
+
+const slider = document.querySelector('.feature-slider');
+let speed = 0.35;
+
+function autoScroll() {
+    slider.scrollLeft += speed;
+
+    if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth || slider.scrollLeft <= 0) {
+        speed = -speed;
+    }
+
+    requestAnimationFrame(autoScroll);
+}
+autoScroll();
+
+
+let index = 0;
+const track = document.getElementById("testimonialTrack");
+const dots = Array.from(document.querySelectorAll('.dot'));
+const prevBtn = document.getElementById('prevTest');
+const nextBtn = document.getElementById('nextTest');
+const slides = track ? Array.from(track.children) : [];
+const total = slides.length || 1;
+let autoTimer = null;
+
+// centralized slide move (robust)
+function moveSliderTo(i) {
+    index = ((i % total) + total) % total; // clamp cyclic
+    if (!track) return;
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach(d => d.classList.remove('active'));
+    if (dots[index]) dots[index].classList.add('active');
+}
+
+// previous / next
+function nextSlide() { moveSliderTo(index + 1); }
+function prevSlide() { moveSliderTo(index - 1); }
+
+// auto play with hover pause
+function startAuto() {
+    stopAuto();
+    autoTimer = setInterval(nextSlide, 3000);
+}
+function stopAuto() {
+    if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+}
+
+nextBtn.addEventListener('click', () => { stopAuto(); nextSlide(); startAuto(); });
+prevBtn.addEventListener('click', () => { stopAuto(); prevSlide(); startAuto(); });
+
+// make dots clickable
+dots.forEach((d, i) => d.addEventListener('click', () => { stopAuto(); moveSliderTo(i); startAuto(); }));
+
+// pause on hover
+const wrapper = document.querySelector('.testimonial-wrapper');
+if (wrapper) {
+    wrapper.addEventListener('mouseenter', stopAuto);
+    wrapper.addEventListener('mouseleave', startAuto);
+}
+
+// init
+moveSliderTo(0);
+startAuto();
+
+
+    // Interactive offer scripts
+    const animatedPriceEl = document.getElementById('animatedPrice');
+    const buyBtn = document.getElementById('buyBtn');
+    const modal = document.getElementById('purchaseModal');
+    const closeModal = document.getElementById('closeModal');
+    const stockCountEl = document.getElementById('stockCount');
+    const progressEl = document.getElementById('stockProgress');
+    const confettiRoot = document.getElementById('confettiRoot');
+    let stock = 12;
+    const START = 324000, TARGET = 149000;
+
+    // Animate price from START to TARGET on load
+    (function animatePrice() {
+        const el = animatedPriceEl;
+        let current = START;
+        const duration = 1300;
+        const start = performance.now();
+        function tick(now) {
+            let t = Math.min((now - start) / duration, 1);
+            // ease out
+            t = 1 - Math.pow(1 - t, 3);
+            const value = Math.round(START + (TARGET - START) * t);
+            el.textContent = value.toLocaleString('id-ID');
+            if (t < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+    })();
+
+    // Stock progress & countdown
+    function renderStock() {
+        stockCountEl.textContent = stock;
+        // progress from 12 -> 0
+        const pct = ((12 - stock) / 12) * 100;
+        progressEl.style.width = pct + '%';
+        if (stock <= 0) {
+            buyBtn.textContent = 'Maaf, stok habis';
+            buyBtn.disabled = true;
+            buyBtn.classList.add('disabled');
+        }
+    }
+    renderStock();
+
+    // simulate purchases (decreases stock slowly)
+    setInterval(() => {
+        if (stock > 0 && Math.random() > 0.45) {
+            stock--;
+            renderStock();
+        }
+    }, 7000);
+
+    
+
+    const buyers = [
+    "Rina – Bandung", "Agus – Jakarta", "Mira – Depok", "Yusuf – Surabaya",
+    "Dewi – Bekasi", "Budi – Tangerang", "Santi – Bogor", "Rudi – Malang",
+    "Riko – Medan", "Vina – Semarang"
+];
+
+function showPopup() {
+    const popup = document.getElementById("purchasePopup");
+    const popupName = document.getElementById("popupName");
+
+    // ambil nama random
+    popupName.textContent = buyers[Math.floor(Math.random() * buyers.length)];
+
+    popup.classList.add("show");
+
+    // sembunyikan setelah 4 detik
+    setTimeout(() => {
+        popup.classList.remove("show");
+    }, 4000);
+}
+
+// muncul tiap 12–25 detik secara acak
+setInterval(showPopup, Math.floor(Math.random() * 12000) + 12000);
+
+// popup pertama muncul setelah 3 detik
+setTimeout(showPopup, 3000);
+   
+</script>
